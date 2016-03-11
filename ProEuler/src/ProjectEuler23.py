@@ -1,4 +1,4 @@
-'''
+"""
 Non-abundant sums
 Problem 23
 A perfect number is a number for which the sum of its proper 
@@ -20,7 +20,10 @@ than this limit.
 
 Find the sum of all the positive integers which cannot be written 
 as the sum of two abundant numbers.
-'''
+Add by Eddy: ths answer is 4179871
+"""
+
+
 def allDivisor(Num):
     if Num == 1:
         return [1]
@@ -31,17 +34,52 @@ def allDivisor(Num):
     divList = [1]
     for Div in range(2, aEnd + 1):
         if Num % Div == 0:
-            divList.append(Div) 
+            divList.append(Div)
     return divList
 
-def testNum(Num):
-    if sum(allDivisor(Num)) == Num :
+
+def testnum(Num):
+    if sum(allDivisor(Num)) == Num:
         return "Perfect"
     elif sum(allDivisor(Num)) < Num:
         return "Deficient"
-    else: #sum(allDivisor(Num)) > Num:
+    else:  # sum(allDivisor(Num)) > Num:
         return "Abundant"
-    
-        
-for aNum in range (1, 100):
-    print (aNum, allDivisor(aNum), testNum(aNum))    
+
+
+perfList = []
+defiList = []
+abunList = []
+
+for aNum in range(12, 28123):
+    if testnum(aNum) == "Abundant":
+        abunList.append(aNum)
+        # print (aNum, allDivisor(aNum), result)
+
+total = len(abunList)
+# print (12 in abunList)
+
+numList = []
+
+
+def isitsumby2abun(Num):
+    for A in range(0, total):
+        firstnum = abunList[A]
+        secondnum = Num - firstnum
+        if secondnum == firstnum:
+            return True
+        elif secondnum <= 0:
+            return False
+        elif secondnum in abunList:
+            return True
+    return False
+
+
+sumnumber = 0
+for Number in range(1, 28123):
+    isit = isitsumby2abun(Number)
+    if (isit):
+        print ('don not count this one')
+    else:
+        sumnumber += Number
+    print (Number, "  ", isit, "   Sum=", sumnumber)
