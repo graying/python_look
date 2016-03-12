@@ -81,8 +81,7 @@ for a in ansList:
         aSum += numList[x][y]
     if aSum > aMax:
         aMax = aSum
-    print (a, end=' ')
-    print ("Sum ={0}|Max={1}".format(aSum, aMax))    
+    print (a, "Sum ={0}|Max={1}".format(aSum, aMax))
 
 print("MAX={0}".format(aMax))
 print(len(ansList))
