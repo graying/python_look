@@ -14,7 +14,7 @@ So, COLIN would obtain a score of 938  53 = 49714.
 
 What is the total of all the name scores in the file?
 '''
-namefile = open("/home/eddy/workspace/ProEuler/src/names.txt", 'rt')
+namefile = open("names.txt", 'rt')
 aName = namefile.read()
 namefile.close()
 nameList = aName.split(',')
