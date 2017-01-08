@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from tkinter import *
+from Tkinter import *
 
 myroot = Tk()
 Label(myroot, text="Red Text in Times font",
