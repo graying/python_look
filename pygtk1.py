@@ -2,7 +2,7 @@
 
 # example helloworld.py
 
-import pygtk
+import py
 pygtk.require('2.0')
 import gtk
 

@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 
+import os
 from Tkinter import *
 
+print os.getcwd()
+
 myroot = Tk()
-logo = PhotoImage(file="/Users/eddy/GitHub/python_look/ProEuler/src/Tkinter/icon.gif")
+logo = PhotoImage(file="icon.gif")
 w1 = Label(myroot, image=logo)
 w1.pack(side="top")
 explanation = '''At present, only gif and PPM/PGM
