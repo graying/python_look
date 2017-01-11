@@ -1,7 +1,8 @@
 # !/usr/bin/env python
 
 import Tkinter as tk
-import sys, time
+import sys
+import time
 
 startPoint = [0, 0]
 endPoint = [6, 6]
