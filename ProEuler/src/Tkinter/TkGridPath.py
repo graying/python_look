@@ -1,10 +1,10 @@
-# !/usr/bin/env pathon3
+# !/usr/bin/env python
 
-import tkinter as tk
+import Tkinter as tk
 import sys, time
 
 startPoint = [0, 0]
-endPoint = [8, 8]
+endPoint = [6, 6]
 
 if (len(sys.argv)) == 3:
     '''get value from command line to grid'''
@@ -28,7 +28,7 @@ def goNext(apath, aPoint):
         global msg
         mycount += 1
         myPathList.append(list(apath))
-        msg.config(text="Calculating, {0} path found!!!".format(mycount)) 
+        msg.config(text="Calculating, {0} path found!!!".format(mycount))
         msg.update()
         # print ("add #{0} path|".format(mycount), apath)
         return
@@ -39,28 +39,28 @@ def goNext(apath, aPoint):
         newPoint[0] = newPoint[0] + 1  # go right first
         goright_path.append(newPoint)
         goNext(goright_path, newPoint)
-        
+
     if (aPoint[1] < endPoint[1]):  # not at the bottom edge
         newPoint = list(aPoint)
         godown_path = list(apath)
         newPoint[1] = newPoint[1] + 1  # go down 1 step
         godown_path.append(newPoint)
         goNext(godown_path, newPoint)
-        
-        
+
+
 def draw_grid(canvas, GridSize):
     canvas.delete('all')
     global margin
     for x in range(0, GridSize[0] + 1):
-            canvas.create_line(x * 30 + margin, margin,
-                               x * 30 + margin, GridSize[1] * 30 + margin)
-            canvas.update()
-            time.sleep(0.05)
+        canvas.create_line(x * 30 + margin, margin,
+                           x * 30 + margin, GridSize[1] * 30 + margin)
+        canvas.update()
+        time.sleep(0.05)
     for y in range(0, GridSize[1] + 1):
-            canvas.create_line(margin, y * 30 + margin,
-                               GridSize[0] * 30 + margin, y * 30 + margin)
-            canvas.update()
-            time.sleep(0.05)
+        canvas.create_line(margin, y * 30 + margin,
+                           GridSize[0] * 30 + margin, y * 30 + margin)
+        canvas.update()
+        time.sleep(0.05)
 
 
 def simulate():
@@ -94,7 +94,7 @@ def simulate():
         canvas.update()
         time.sleep(0.1)
 
-    
+
 if __name__ == '__main__':
     path1 = []
     mypoint = startPoint[:]
@@ -110,13 +110,13 @@ if __name__ == '__main__':
                      justify="left",
                      width=400)
     msg.grid(row=0, column=0, sticky='W')
-    
+
     msglabel = tk.Message(myFrame, text="choose path #", justify='left')
     msglabel.grid(row=1, column=0, sticky="W")
-    
+
     entry = tk.Entry(myFrame, width=8)
     entry.grid(row=1, column=1, sticky="W")
-    
+
     btnSim = tk.Button(myFrame, text="simulate", command=simulate, state="disabled")
     btnSim.grid(row=1, column=2, sticky="W")
     btnQuit = tk.Button(myFrame, text="Quit", command=myFrame.destroy)
@@ -126,10 +126,10 @@ if __name__ == '__main__':
     canvas.grid(row=2, column=0)
 
     draw_grid(canvas, endPoint)
-    
+
     goNext(path1, mypoint)
     # start to calculate the path and show message
-    
+
     btnSim.config(state="normal")
     msglabel.config(text="choose path # between 0 and {0}:".format(mycount - 1), width=120)
     msglabel.update()
