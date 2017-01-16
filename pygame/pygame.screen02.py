@@ -1,5 +1,5 @@
+"""Draw a circle or a rectangle when key pressed"""
 import random
-import time
 
 import pygame
 
