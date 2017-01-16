@@ -6,6 +6,10 @@ import pygame
 pygame.init()
 screen = pygame.display.set_mode([1440, 900])
 screen.fill([0, 0, 0])
+draw_command = 1
+
+
+# draw_command = 1 circle, 0 rectangle
 
 
 def draw_rect(screen):
@@ -36,9 +40,17 @@ while running:
             if event.key == pygame.K_BACKSPACE:
                 screen.fill([0, 0, 0])
                 pygame.display.update()
+            elif event.key == pygame.K_RETURN:
+                if draw_command == 1:
+                    draw_command = 0
+                else:
+                    draw_command = 1
             else:
-                for i in range(15):
-                    draw_circle(screen)
+                for i in range(1):
+                    if draw_command == 1:
+                        draw_circle(screen)
+                    else:
+                        draw_rect(screen)
                     # draw_rect(screen)
 
 pygame.quit()
