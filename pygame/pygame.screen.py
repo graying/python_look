@@ -16,7 +16,7 @@ for i in range(100):
     rectcolor = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
     rectsize = [random.randint(0, 1220), random.randint(0, 800), random.randint(0, 256), random.randint(0, 256)]
     pygame.draw.rect(screen, rectcolor, rectsize, random.randint(0, 5))
-    pygame.display.flip()
+    pygame.display.update()
     time.sleep(1)
 
 running = True
